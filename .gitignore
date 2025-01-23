@@ -1,0 +1,7 @@
+src/__pycache__
+venv
+*.7z
+*.c
+ us_congestion_2016_2022.csv
+*.gz
+us_congestion_2016_2022SMALL.csv

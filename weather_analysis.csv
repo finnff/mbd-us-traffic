@@ -1,0 +1,5 @@
+weather_rating,total_incidents,avg_speed,avg_delay_typical,avg_delay_freeflow,pct_fast,pct_moderate,pct_slow,percentage_of_total
+good,109352,,2.69,3.98,32.9,41.81,25.3,65.67
+bad,23039,,3.39,4.16,51.61,31.87,16.52,13.84
+neutral,29379,,2.84,4.07,35.67,39.34,24.99,17.64
+unknown,4750,,3.14,4.12,38.44,36.38,25.18,2.85
