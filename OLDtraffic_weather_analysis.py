@@ -14,7 +14,7 @@ good_weather = [
     "Scattered Clouds",
     "Fair / Windy",
     "Mostly Cloudy / Windy",
-    "Partly Cloudy / Windy"
+    "Partly Cloudy / Windy",
 ]
 
 neutral_weather = [
@@ -40,7 +40,7 @@ neutral_weather = [
     "Shallow Fog / Windy",
     "Heavy Fog",
     "Heavy Smoke",
-    "Light Smoke"
+    "Light Smoke",
 ]
 
 bad_weather = [
@@ -186,153 +186,162 @@ bad_weather = [
     "Snow Shower / Windy",
     "Blowing Sand / Windy",
     "Thunderstorms with Small Hail",
-    "Low Drifting Dust / Windy"
-    ]
+    "Low Drifting Dust / Windy",
+]
+
 
 def categorize_weather(condition: str) -> str:
     """Categorize weather condition into good, bad, or neutral"""
-    if pd.isna(condition) or str(condition).strip() == '':
-        return 'unknown'
-    
+    if pd.isna(condition) or str(condition).strip() == "":
+        return "unknown"
+
     condition_lower = str(condition).lower()
-    
+
     for good in good_weather:
         if good.lower() in condition_lower:
-            return 'good'
-            
+            return "good"
+
     for bad in bad_weather:
         if bad.lower() in condition_lower:
-            return 'bad'
-            
+            return "bad"
+
     for neutral in neutral_weather:
         if neutral.lower() in condition_lower:
-            return 'neutral'
-            
-    return 'unknown'
+            return "neutral"
+
+    return "unknown"
+
 
 def extract_speed_info(speed_str: str) -> tuple:
     """Extract both qualitative and quantitative speed information"""
     if pd.isna(speed_str):
-        return np.nan, 'Unknown'
-    
+        return np.nan, "Unknown"
+
     speed_str = str(speed_str)
-    
+
     # Extract qualitative speed (Fast/Moderate/Slow)
-    if 'Fast' in speed_str:
-        category = 'Fast'
-    elif 'Moderate' in speed_str:
-        category = 'Moderate'
-    elif 'Slow' in speed_str:
-        category = 'Slow'
+    if "Fast" in speed_str:
+        category = "Fast"
+    elif "Moderate" in speed_str:
+        category = "Moderate"
+    elif "Slow" in speed_str:
+        category = "Slow"
     else:
-        category = 'Unknown'
-    
+        category = "Unknown"
+
     # Extract numeric value
     try:
-        numeric = float(''.join(filter(lambda x: x.isdigit() or x == '.', speed_str)))
+        numeric = float("".join(filter(lambda x: x.isdigit() or x == ".", speed_str)))
     except:
         numeric = np.nan
-        
+
     return numeric, category
+
 
 def process_file(filename: str):
     """Read and process the CSV file"""
     print(f"Processing {filename}...")
-    
+
     # Read the CSV file
     df = pd.read_csv(filename, low_memory=False)
-    
+
     # Process Congestion_Speed column
-    speed_info = df['Congestion_Speed'].apply(extract_speed_info)
-    df['speed_numeric'] = speed_info.apply(lambda x: x[0])
-    df['speed_category'] = speed_info.apply(lambda x: x[1])
-    
+    speed_info = df["Congestion_Speed"].apply(extract_speed_info)
+    df["speed_numeric"] = speed_info.apply(lambda x: x[0])
+    df["speed_category"] = speed_info.apply(lambda x: x[1])
+
     # Process delay columns
-    df['DelayFromTypicalTraffic(mins)'] = pd.to_numeric(df['DelayFromTypicalTraffic(mins)'], errors='coerce')
-    df['DelayFromFreeFlowSpeed(mins)'] = pd.to_numeric(df['DelayFromFreeFlowSpeed(mins)'], errors='coerce')
-    
+    df["DelayFromTypicalTraffic(mins)"] = pd.to_numeric(
+        df["DelayFromTypicalTraffic(mins)"], errors="coerce"
+    )
+    df["DelayFromFreeFlowSpeed(mins)"] = pd.to_numeric(
+        df["DelayFromFreeFlowSpeed(mins)"], errors="coerce"
+    )
+
     # Add weather rating
-    df['weather_rating'] = df['Weather_Conditions'].apply(categorize_weather)
-    
+    df["weather_rating"] = df["Weather_Conditions"].apply(categorize_weather)
+
     return df
+
 
 def analyze_weather_impact(df: pd.DataFrame):
     """Analyze the impact of weather on traffic"""
     results = []
-    
-    for rating in ['good', 'bad', 'neutral', 'unknown']:
-        mask = df['weather_rating'] == rating
+
+    for rating in ["good", "bad", "neutral", "unknown"]:
+        mask = df["weather_rating"] == rating
         subset = df[mask]
-        
+
         if len(subset) > 0:
             # Calculate speed category distribution
-            speed_dist = subset['speed_category'].value_counts()
+            speed_dist = subset["speed_category"].value_counts()
             speed_pct = (speed_dist / len(subset) * 100).round(2)
-            
+
             result = {
-                'weather_rating': rating,
-                'total_incidents': len(subset),
-                'avg_speed': subset['speed_numeric'].mean(),
-                'avg_delay_typical': subset['DelayFromTypicalTraffic(mins)'].mean(),
-                'avg_delay_freeflow': subset['DelayFromFreeFlowSpeed(mins)'].mean(),
-                'pct_fast': speed_pct.get('Fast', 0),
-                'pct_moderate': speed_pct.get('Moderate', 0),
-                'pct_slow': speed_pct.get('Slow', 0),
+                "weather_rating": rating,
+                "total_incidents": len(subset),
+                "avg_speed": subset["speed_numeric"].mean(),
+                "avg_delay_typical": subset["DelayFromTypicalTraffic(mins)"].mean(),
+                "avg_delay_freeflow": subset["DelayFromFreeFlowSpeed(mins)"].mean(),
+                "pct_fast": speed_pct.get("Fast", 0),
+                "pct_moderate": speed_pct.get("Moderate", 0),
+                "pct_slow": speed_pct.get("Slow", 0),
             }
             results.append(result)
-    
+
     results_df = pd.DataFrame(results)
-    
+
     # Add percentage of total incidents
-    total_records = results_df['total_incidents'].sum()
-    results_df['percentage_of_total'] = (results_df['total_incidents'] / total_records * 100).round(2)
-    
+    total_records = results_df["total_incidents"].sum()
+    results_df["percentage_of_total"] = (results_df["total_incidents"] / total_records * 100).round(
+        2
+    )
+
     return results_df.round(2)
+
 
 def main():
     try:
         # Process the file
-        df = process_file('us_congestion_2016_2022SMALL.csv')
-        
+        df = process_file("us_congestion_2016_2022SMALL.csv")
+
         # Save processed data
         print("\nSaving processed data...")
-        df.to_csv('weather_rated_traffic.csv', index=False)
-        
+        df.to_csv("weather_rated_traffic.csv", index=False)
+
         # Analyze weather impact
         print("Analyzing weather impact...")
         analysis = analyze_weather_impact(df)
-        
+
         # Save analysis
-        analysis.to_csv('weather_analysis.csv', index=False)
-        
+        analysis.to_csv("weather_analysis.csv", index=False)
+
         # Print summary
         print("\nWeather Impact Analysis:")
-        pd.set_option('display.max_columns', None)
-        pd.set_option('display.width', None)
+        pd.set_option("display.max_columns", None)
+        pd.set_option("display.width", None)
         print(analysis.to_string())
-        
+
         # Print speed category distribution by weather
         print("\nDetailed Speed Category Distribution by Weather:")
-        speed_weather_dist = pd.crosstab(
-            df['weather_rating'], 
-            df['speed_category'], 
-            normalize='index'
-        ) * 100
+        speed_weather_dist = (
+            pd.crosstab(df["weather_rating"], df["speed_category"], normalize="index") * 100
+        )
         print(speed_weather_dist.round(2))
-        
+
         print("\nFiles saved:")
         print("1. weather_rated_traffic.csv - Full dataset with weather ratings")
         print("2. weather_analysis.csv - Weather impact analysis")
-        
+
     except Exception as e:
         print(f"Error: {str(e)}")
         import traceback
+
         print(traceback.format_exc())
+
 
 if __name__ == "__main__":
     main()
-
-
 
 
 """

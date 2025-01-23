@@ -1,3 +1,4 @@
+# Weather condition mappings
 good_weather = [
     "Fair",
     "Clear",

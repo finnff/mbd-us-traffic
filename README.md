@@ -6,22 +6,52 @@ total 16G
 drwxr-xr-x. 1 sga sga  738 Jan 23 15:04 .
 drwxr-xr-x. 1 sga sga  152 Jan 23 15:03 ..
 -rwxr-xr-x. 1 sga sga 5.3K Jan 17 17:50 analyzer.py
--rw-r--r--. 1 sga sga  35K Jan 17 17:50 column_analysis_report.txt
 -rwxr-xr-x. 1 sga sga 3.0K Jan 17 17:21 downsizer.py
--rw-r--r--. 1 sga sga  26K Jan 17 17:50 frequencies_vis.csv
 drwxr-xr-x. 1 sga sga  116 Jan 23 15:04 .git
 -rw-r--r--. 1 sga sga   33 Jan 23 15:04 .gitignore
--rw-r--r--. 1 sga sga  807 Jan 17 17:50 missing_data_vis.csv
 -rw-r--r--. 1 sga sga  194 Jan 23 15:04 pyproject.toml
--rwxr-xr-x. 1 sga sga  11K Jan 17 21:51 traffic_weather_analysis.py
--rw-r--r--. 1 sga sga 1.3G Jan  8 11:20 us_congestion_2016_2022.7z
+-rwxr-xr-x. 1 sga sga  21K Jan 17 21:51 linReg_traffic_weather_analysis.py
 -rw-r--r--. 1 sga sga  12G Dec  9  2023 us_congestion_2016_2022.csv
 -rw-r--r--. 1 sga sga 2.1G Dec  9  2023 us_congestion_2016_2022.csv.gz
 -rw-r--r--. 1 sga sga  62M Jan 17 17:23 us_congestion_2016_2022SMALL.csv
-drwxr-xr-x. 1 sga sga  102 Jan 17 17:56 visuals
--rw-r--r--. 1 sga sga  315 Jan 17 21:13 weather_analysis.csv
--rw-r--r--. 1 sga sga 3.2K Jan 17 20:11 weather_conditions_all.csv
 -rwxr-xr-x. 1 sga sga 4.3K Jan 17 20:11 weather_conditions_categorised.py
--rw-r--r--. 1 sga sga  64M Jan 17 21:13 weather_rated_traffic.csv
 
+```
+# Tools
+
+### 1. analyzer.py
+**Purpose**: Fast CSV data profiling script for analyzing column statistics
+
+**Parameters**:
+- `chunk_size` (int): Rows to process at once (default: 100,000)
+- `top_n` (int): Number of frequent values to show (default: 20)
+
+**Usage**:
+```bash
+python analyzer.py large_dataset.csv analysis_report
+```
+
+### 2. downsizer.py
+**Purpose**: Create smaller representative data sets from from large CSV files fir testing
+
+**Usage**:
+```bash
+python downsizer.py us_congestion_2016_2022.csv us_congestion_2016_2022tiny.csv
+# Original: 12G us_congestion_2016_2022.csv
+# Result:   62M us_congestion_2016_2022tiny.csv
+```
+
+```
+
+### 3. weather_conditions_categorized.py
+**Purpose**: Maps weather conditions to good/bad/neutral categories as defined in Excel sheet
+
+### 4. linReg_traffic_weather_analysis.py
+**Purpose**: Traffic and weather impact analysis using linear regression
+
+**Dependencies**: pandas, numpy, statsmodels, tqdm, dataclasses
+
+**Usage**:
+```bash
+python linReg_traffic_weather_analysis.py 
 ```
