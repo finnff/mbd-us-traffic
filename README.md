@@ -41,7 +41,6 @@ python downsizer.py us_congestion_2016_2022.csv us_congestion_2016_2022tiny.csv
 # Result:   62M us_congestion_2016_2022tiny.csv
 ```
 
-```
 
 ### 3. weather_conditions_categorized.py
 **Purpose**: Maps weather conditions to good/bad/neutral categories as defined in Excel sheet
