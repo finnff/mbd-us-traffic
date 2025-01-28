@@ -223,21 +223,26 @@ def generate_formula(target: str, predictors: list) -> str:
 
 
 def analyze_all_models(df: pd.DataFrame, max_predictors: int = 2):
-    results = {}
+    results = []
     # Weather -> Traffic models
     for traffic_target in traffic_vars:
         for n in range(1, max_predictors + 1):
-            for predictors in itertools.permutations(weather_vars, n):
+            for predictors in itertools.combinations(weather_vars, n):
                 formula = generate_formula(traffic_target, list(predictors))
                 try:
                     model = smf.ols(formula, data=df).fit(cov_type="HC3")
-                    model_key = f"weather_to_{traffic_target}_{'_'.join(predictors)}"
-                    results[model_key] = model
+                    result = {
+                        "model": f"weather_to_{traffic_target}_{'_'.join(predictors)}",
+                        "adj_r2": model.rsquared_adj,
+                        "significant_vars": sum(model.pvalues < 0.05),
+                        "formula": model.model.formula,
+                    }
+                    results.append(result)
                     print(f"{len(results)} {formula} - Adj R²: {model.rsquared_adj:.3f}")
                 except Exception as e:
                     print(f"Failed for {traffic_target} with predictors {predictors}: {str(e)}")
 
-    # can also now Traffic->Weather instead of Weather->Traffic if you uncomment this
+    # Uncomment this block if you want Traffic -> Weather models
     # Traffic -> Weather models
     # for weather_target in ["Temperature(F)", "WindSpeed(mph)", "Humidity(%)", "Precipitation(in)"]:
     #     for n in range(1, max_predictors + 1):
@@ -245,14 +250,18 @@ def analyze_all_models(df: pd.DataFrame, max_predictors: int = 2):
     #             formula = generate_formula(weather_target, list(predictors))
     #             try:
     #                 model = smf.ols(formula, data=df).fit(cov_type="HC3")
-    #                 model_key = f"traffic_to_{weather_target}_{'_'.join(predictors)}"
-    #                 results[model_key] = model
+    #                 result = {
+    #                     "model": f"traffic_to_{weather_target}_{'_'.join(predictors)}",
+    #                     "adj_r2": model.rsquared_adj,
+    #                     "significant_vars": sum(model.pvalues < 0.05),
+    #                     "formula": model.model.formula,
+    #                 }
+    #                 results.append(result)
     #                 print(f"{len(results)} {formula} - Adj R²: {model.rsquared_adj:.3f}")
     #             except Exception as e:
-    #                 print(
-    #                     f"Failed for {weather_target} with predictors {predictors}: {str(e)}"
-    #                 )
-    return results
+    #                 print(f"Failed for {weather_target} with predictors {predictors}: {str(e)}")
+
+    return pd.DataFrame(results)
 
 
 def compile_results(models: dict) -> pd.DataFrame:
@@ -272,11 +281,12 @@ def compile_results(models: dict) -> pd.DataFrame:
         )
     return pd.DataFrame(results)
 
+
 def main():
     try:
         df = process_file("us_congestion_2016_2022SMALL.csv")
-        all_models = analyze_all_models(df)
-        results_df = compile_results(all_models)
+        # all_models = analyze_all_models(df)
+        results_df = analyze_all_models(df, 3)
         results_df.to_csv("automated_model_results.csv", index=False)
 
         print("\n Most Significant influence:  ")
