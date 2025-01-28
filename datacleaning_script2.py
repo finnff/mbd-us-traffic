@@ -1,16 +1,35 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, sqrt, pow, to_timestamp, when, abs, first, last,count, isnull
+from pyspark.sql.functions import (
+    col,
+    sqrt,
+    pow,
+    to_timestamp,
+    when,
+    abs,
+    first,
+    last,
+    count,
+    isnull,
+)
 from pyspark.sql.window import Window
 
 # Set Up
 spark = SparkSession.builder.appName("ProjectGroup16").getOrCreate()
 sc = spark.sparkContext
 sc.setLogLevel("ERROR")
-data_traffic = spark.read.option("header", True).csv("/user/s2899078/projectdata/us_congestion_2016_2022.csv.gz")
-data_weather = spark.read.option("header", True).csv("/user/s2899078/projectdata/WeatherEvents_Jan2016-Dec2022.csv.gz")
+data_traffic = spark.read.option("header", True).csv(
+    "/user/s2899078/projectdata/us_congestion_2016_2022.csv.gz"
+)
+data_weather = spark.read.option("header", True).csv(
+    "/user/s2899078/projectdata/WeatherEvents_Jan2016-Dec2022.csv.gz"
+)
 # Turn Times into timestamp
-data_traffic = data_traffic.withColumn("StartTime", to_timestamp(col("StartTime"), "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"))
-data_weather = data_weather.withColumn("StartTime(UTC)", to_timestamp(col("StartTime(UTC)"), "yyyy-MM-dd HH:mm:ss"))
+data_traffic = data_traffic.withColumn(
+    "StartTime", to_timestamp(col("StartTime"), "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
+)
+data_weather = data_weather.withColumn(
+    "StartTime(UTC)", to_timestamp(col("StartTime(UTC)"), "yyyy-MM-dd HH:mm:ss")
+)
 # Remove rows with NULL's
 data_traffic = data_traffic.filter(col("State").isNotNull())
 data_traffic = data_traffic.filter(col("StartTime").isNotNull())
@@ -23,15 +42,15 @@ data_traffic = data_traffic.withColumn(
     "Weather_Conditions_Forward",
     when(
         col("Weather_Conditions").isNull(),
-        last("Weather_Conditions", ignorenulls=True).over(window_spec)
-    ).otherwise(col("Weather_Conditions"))
+        last("Weather_Conditions", ignorenulls=True).over(window_spec),
+    ).otherwise(col("Weather_Conditions")),
 )
 data_traffic = data_traffic.withColumn(
     "Weather_Conditions_Backward",
     when(
         col("Weather_Conditions").isNull(),
-        first("Weather_Conditions", ignorenulls=True).over(window_spec)
-    ).otherwise(col("Weather_Conditions_Forward"))
+        first("Weather_Conditions", ignorenulls=True).over(window_spec),
+    ).otherwise(col("Weather_Conditions_Forward")),
 )
 
 # Drop temporary columns and rename

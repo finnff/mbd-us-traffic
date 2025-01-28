@@ -1,5 +1,6 @@
 import re
 import statsmodels.formula.api as smf
+import statsmodels.stats.diagnostic as smd
 import pandas as pd
 import numpy as np
 from typing import List, Dict
@@ -224,23 +225,76 @@ def generate_formula(target: str, predictors: list) -> str:
 
 def analyze_all_models(df: pd.DataFrame, max_predictors: int = 2):
     results = []
+    hc3_count = 0
+    total_models = 0
     # Weather -> Traffic models
     for traffic_target in traffic_vars:
         for n in range(1, max_predictors + 1):
             for predictors in itertools.combinations(weather_vars, n):
                 formula = generate_formula(traffic_target, list(predictors))
                 try:
-                    model = smf.ols(formula, data=df).fit(cov_type="HC3")
+                    # fit model normally
+                    model = smf.ols(formula, data=df).fit()
+
+                    # Perform Breusch-Pagan test https://en.wikipedia.org/wiki/Breusch%E2%80%93Pagan_test
+                    bp_test = smd.het_breuschpagan(model.resid, model.model.exog)
+
+                    # if p-value < 0.05, heteroskedasticity is present
+                    use_robust = bp_test[1] < 0.05
+
+                    # refit with HC3 if heteroskedasticity is detected:
+                    if use_robust:
+                        model = smf.ols(formula, data=df).fit(cov_type="HC3")
+
                     result = {
                         "model": f"weather_to_{traffic_target}_{'_'.join(predictors)}",
                         "adj_r2": model.rsquared_adj,
                         "significant_vars": sum(model.pvalues < 0.05),
                         "formula": model.model.formula,
+                        "bp_statistic": bp_test[0],
+                        "bp_pvalue": bp_test[1],
+                        "heteroskedastic": use_robust,
+                        "estimation": "HC3" if use_robust else "OLS",
                     }
                     results.append(result)
-                    print(f"{len(results)} {formula} - Adj R²: {model.rsquared_adj:.3f}")
+                    print(f"{len(results)} {formula}")
+                    print(f"Adj R²: {model.rsquared_adj:.3f}")
+                    print(f"Heteroskedasticity test p-value: {bp_test[1]:.4f}")
+                    print(f"Using {'HC3' if use_robust else 'standard'} estimation\n")
                 except Exception as e:
                     print(f"Failed for {traffic_target} with predictors {predictors}: {str(e)}")
+
+    # Uncomment this block if you want Traffic -> Weather models
+    # Traffic -> Weather models
+    # for weather_target in ["Temperature(F)", "WindSpeed(mph)", "Humidity(%)", "Precipitation(in)"]:
+    #     for n in range(1, max_predictors + 1):
+    #         for predictors in itertools.permutations(traffic_vars, n):
+    #             formula = generate_formula(weather_target, list(predictors))
+    #             try:
+    #                 model = smf.ols(formula, data=df).fit(cov_type="HC3")
+    #                 result = {
+    #                     "model": f"traffic_to_{weather_target}_{'_'.join(predictors)}",
+    #                     "adj_r2": model.rsquared_adj,
+    #                     "significant_vars": sum(model.pvalues < 0.05),
+    #                     "formula": model.model.formula,
+    #                 }
+    #                 results.append(result)
+    #                 print(f"{len(results)} {formula} - Adj R²: {model.rsquared_adj:.3f}")
+    #             except Exception as e:
+    #                 print(f"Failed for {weather_target} with predictors {predictors}: {str(e)}")
+
+    results = pd.DataFrame(results)
+    hc3_percentage = (hc3_count / total_models) * 100 if total_models > 0 else 0
+    hc3_ratio = (
+        hc3_count / (total_models - hc3_count) if (total_models - hc3_count) > 0 else float("inf")
+    )
+
+    print("\nHeteroskedasticity Summary:")
+    print(f"Total models analyzed: {total_models}")
+    print(f"Models using HC3: {hc3_count}")
+    print(f"Models using standard OLS: {total_models - hc3_count}")
+    print(f"Percentage using HC3: {hc3_percentage:.1f}%")
+    print(f"Ratio HC3:Standard: {hc3_ratio:.2f}")
 
     return pd.DataFrame(results)
 
@@ -267,7 +321,7 @@ def main():
     try:
         df = process_file("us_congestion_2016_2022SMALL.csv")
         # all_models = analyze_all_models(df)
-        results_df = analyze_all_models(df, 4)
+        results_df = analyze_all_models(df, 3)
         results_df.to_csv("automated_model_results.csv", index=False)
 
         print("\n Most Significant influence:  ")
