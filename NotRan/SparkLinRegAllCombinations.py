@@ -1,26 +1,26 @@
-import re
-import statsmodels.formula.api as smf
-import pandas as pd
-import numpy as np
 from typing import List, Dict
-from tqdm import tqdm
+import os
+import pandas as pd
 import itertools
-from dataclasses import dataclass
 from weather_conditions_map import good_weather, neutral_weather, bad_weather
 
 
 from pyspark.sql import functions as F
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, udf
 from pyspark.sql.types import IntegerType, DoubleType, StringType, StructType, StructField
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.regression import LinearRegression
 from pyspark.ml.stat import Correlation
 from time import sleep
+from pyspark.ml.feature import StandardScaler
+from datetime import datetime
 
 
 # MOVING TO TOP OF FILE
 # CHANGE PARAMS HERE
+#
+MAX_NUMBER_PREDICTOR = 2
+
 # Numeric weather measurements
 WEATHER_NUMERIC = [
     "Temperature(F)",
@@ -48,6 +48,8 @@ TRAFFIC_VARS = [
     "DelayFromFreeFlowSpeed(mins)",
     "speed_numeric",
 ]
+TRAFFIC_VARS = list(reversed(TRAFFIC_VARS))
+WEATHER_VARS = list(reversed(WEATHER_VARS))
 
 # required columns for final output
 REQUIRED_COLUMNS = WEATHER_NUMERIC + TRAFFIC_VARS + WEATHER_DUMMY_COLS + ["weather_rating"]
@@ -55,25 +57,29 @@ REQUIRED_COLUMNS = WEATHER_NUMERIC + TRAFFIC_VARS + WEATHER_DUMMY_COLS + ["weath
 
 def create_spark_session(app_name="SparkLinRegAllCombinations"):
     """Create or get existing Spark session"""
-    return SparkSession.builder.appName(app_name).getOrCreate()
+    spark = SparkSession.builder.appName("SparkLinRegAllCombinations").getOrCreate()
+    return spark
 
 
 def extract_speed_info(speed_str: str) -> tuple:
-    if pd.isna(speed_str):
-        return (np.nan, "Unknown")
-    clean_str = str(speed_str).strip().lower()
+    if not speed_str:
+        return ("Unknown", float("nan"))
+
+    clean_str = speed_str.strip().lower()
     category_map = {
         "fast": ("fast", 60.0),
         "moderate": ("moderate", 40.0),
         "slow": ("slow", 20.0),
     }
-    for key in category_map:
+
+    for key, value in category_map.items():
         if key in clean_str:
-            return category_map[key]
-    return (np.nan, "Unknown")
+            return value
+
+    return ("Unknown", float("nan"))
 
 
-def process_file(parquet_path: str) -> pd.DataFrame:
+def process_file(parquet_path: str):
     print(f"Processing {parquet_path}...")
 
     spark = create_spark_session()
@@ -114,7 +120,6 @@ def process_file(parquet_path: str) -> pd.DataFrame:
         .withColumn("speed_numeric", F.col("speed_info.numeric"))
         .drop("speed_info")
     )
-
     categorize_weather_udf = F.udf(categorize_weather, StringType())
     df = df.withColumn("weather_rating", categorize_weather_udf(F.col("Weather_Conditions")))
 
@@ -124,6 +129,13 @@ def process_file(parquet_path: str) -> pd.DataFrame:
         df = df.withColumn(
             f"weather_{category}", F.when(F.col("weather_rating") == category, 1).otherwise(0)
         )
+    # unlike pandas we dont have dummies so we need to create them
+    weather_categories = ["good", "bad", "neutral", "unknown"]
+    for category in weather_categories:
+        df = df.withColumn(
+            f"weather_{category}", F.when(F.col("weather_rating") == category, 1).otherwise(0)
+        )
+
     # Batch convert vars (aka numeric columns)
     numeric_columns = WEATHER_NUMERIC + TRAFFIC_VARS
     for col_name in numeric_columns:
@@ -146,109 +158,120 @@ def process_file(parquet_path: str) -> pd.DataFrame:
 
 def categorize_weather(condition: str) -> str:
     """Categorize weather condition into good, bad, or neutral"""
-    if pd.isna(condition) or str(condition).strip() == "":
+
+    if not condition or condition.strip() == "":
         return "unknown"
 
-    condition_lower = str(condition).lower()
+    condition_lower = condition.lower()
 
-    for good in good_weather:
-        if good.lower() in condition_lower:
-            return "good"
+    if any(good in condition_lower for good in good_weather):
+        return "good"
 
-    for bad in bad_weather:
-        if bad.lower() in condition_lower:
-            return "bad"
+    if any(bad in condition_lower for bad in bad_weather):
+        return "bad"
 
-    for neutral in neutral_weather:
-        if neutral.lower() in condition_lower:
-            return "neutral"
+    if any(neutral in condition_lower for neutral in neutral_weather):
+        return "neutral"
 
     return "unknown"
 
 
-def generate_formula(target: str, predictors: list) -> str:
-    # create formula strings with main effects and pairwise interactions."""
-    def quote_var(var: str) -> str:
-        if re.search(r"[ ()]", var):
-            return f'Q("{var}")'
-        return var
+def train_linear_regression_model(df, features: List[str], target: str):
+    """Train linear regression model using PySpark"""
 
-    quoted_target = quote_var(target)
-    # we hit recusion depth if we have target in predictors
-    quoted_predictors = [quote_var(p) for p in predictors if p != target]
-    formula_terms = " + ".join(quoted_predictors)
-    return f"{quoted_target} ~ ({formula_terms})**2"
+    #drop null columns:
+    checkcolumns = features + [target]
+    df.dropna(subset=checkcolumns)
+
+    # Assemble feature columns into a vector
+    assembler = VectorAssembler(inputCols=features, outputCol="features", handleInvalid="skip")
+    df = assembler.transform(df)
+    # standardize for scales
+    scaler = StandardScaler(
+        inputCol="features", outputCol="scaled_features", withStd=True, withMean=True
+    )
+    scaler_df = scaler.fit(df).transform(df)
+
+    lr = LinearRegression(featuresCol="scaled_features", labelCol=target,standardization=False)
+    lr_model = lr.fit(scaler_df)
+
+    # extract r2 value
+    r2_value = lr_model.summary.r2
+    # get the number of significant features
+    coefficients = lr_model.coefficients
+    # dont use zero here
+    significant_features = [
+        (features[i], coeff) for i, coeff in enumerate(coefficients) if abs(coeff > 1e-8)
+    ]
+    num_significant_features = len(significant_features)
+
+    print(
+        f"Target: {target} | R²: {r2_value:.4f} | Number of Significant Features: {num_significant_features} | Features: {features}"
+    )
+
+    return {
+        "r2": r2_value,
+        "num_significant_features": num_significant_features,
+        "features": features,
+    }
 
 
-def analyze_all_models(df: pd.DataFrame, max_predictors: int = 2):
+def analyze_all_models(df, max_predictors: int = 2, output_file=None):
     results = []
+
+    # Create a file with header if doesnt extist
+    if not os.path.exists(output_file):
+        pd.DataFrame(
+            columns=["target", "r2", "num_significant_features", "significant_features", "formula"]
+        ).to_csv(output_file, index=False)
     # Weather -> Traffic models
     for traffic_target in TRAFFIC_VARS:
         for n in range(1, max_predictors + 1):
             for predictors in itertools.combinations(WEATHER_VARS, n):
-                formula = generate_formula(traffic_target, list(predictors))
+                features = list(predictors)
+                features.append("Traffic Jam Duration")  # Add essential feature
+
+                df = df.cache()  # Cache DataFrame for performance
                 try:
-                    model = smf.ols(formula, data=df).fit(cov_type="HC3")
-                    result = {
-                        "model": f"weather_to_{traffic_target}_{'_'.join(predictors)}",
-                        "adj_r2": model.rsquared_adj,
-                        "significant_vars": sum(model.pvalues < 0.05),
-                        "formula": model.model.formula,
+                    # Train the model and get results
+                    model_results = train_linear_regression_model(df, features, traffic_target)
+
+                    # Append results to the list
+                    result_row = {
+                        "target": traffic_target,
+                        "r2": model_results["r2"],
+                        "num_significant_features": model_results["num_significant_features"],
+                        "significant_features": model_results["significant_features"],
+                        "formula": f"{traffic_target} ~ {' + '.join(features)}",
                     }
-                    results.append(result)
-                    print(f"{len(results)} {formula} - Adj R²: {model.rsquared_adj:.3f}")
+
+                    pd.DataFrame([result_row]).to_csv(
+                        output_file, mode="a", header=False, index=False
+                    )
                 except Exception as e:
-                    print(f"Failed for {traffic_target} with predictors {predictors}: {str(e)}")
-
-    results_df = pd.DataFrame(results)
-    print("\nAnalysis Summary:")
-    print(f"Total models analyzed: {len(results_df)}")
-    print(f"Average Adj R²: {results_df['adj_r2'].mean():.3f}")
-    print(f"Best Adj R²: {results_df['adj_r2'].max():.3f}")
-    return pd.DataFrame(results)
-
-
-def compile_results(models: dict) -> pd.DataFrame:
-    # get info from models for printing
-    results = []
-    for name, model in models.items():
-        if not hasattr(model, "rsquared_adj"):
-            continue  # Skip failed models
-
-        results.append(
-            {
-                "model": name,
-                "adj_r2": model.rsquared_adj,
-                "significant_vars": sum(model.pvalues < 0.05),
-                "formula": model.model.formula,
-            }
-        )
-    return pd.DataFrame(results)
+                    print(
+                        f"Failed to train model for {traffic_target} with predictors {predictors}: {e}"
+                    )
+                    exit(1)
 
 
 def main():
     try:
         # TODO: hdfs location
-        parquet_path = "./PARQUETFILLED"
-        df = process_file(parquet_path)
-        # convert to pandas df
-        # df = df.toPandas()
-        # print first 5 rows
-        df = df.toPandas()
-        
-        # Print schema and first few rows for verification
-        print(df.info())
-        print(df.head())
 
-        # Test the formula generation
-        target = "speed_numeric"
-        predictors = WEATHER_VARS  # Full list of weather variables
-        
-        formula = generate_formula(target, predictors)
-        print("Generated Formula:", formula)
-        sleep(5)
-        results_df = analyze_all_models(df, 2)
-        results_df.to_csv("automated_model_results.csv", index=False)
+        parquet_path = (
+            "/user/s3521281/filled_traffic"  # on hdfs cluster use: /user/s3521281/filled_traffic
+        )
+        # parquet_path = "./PARQUETFILLED"
+
+        df = process_file(parquet_path)
+        timestamp = datetime.now().strftime("%m%d%H%M")
+        output_file = f"{timestamp}_sparklinreg.csv"
+
+        print(f"Results logging to to: {output_file}")
+
+        analyze_all_models(df, max_predictors=MAX_NUMBER_PREDICTOR, output_file=output_file)
+        results_df = analyze_all_models(df, max_predictors=2)
 
         print("\n Most Significant influence:  ")
         print(results_df.sort_values("adj_r2", ascending=False).head(100).to_string())
@@ -258,6 +281,7 @@ def main():
         import traceback
 
         print(traceback.format_exc())
+        exit(1)
 
 
 if __name__ == "__main__":

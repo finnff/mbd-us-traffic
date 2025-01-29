@@ -277,6 +277,9 @@ print(f"R²: {summary.r2}")
 print(f"RMSE: {summary.rootMeanSquaredError}")
 print(f"Coefficients: {lr_model.coefficients}")
 print(f"Intercept: {lr_model.intercept}")
-
+print(f"p-values: {summary.pValues}")
 # Display residuals
 summary.residuals.show()
+
+
+

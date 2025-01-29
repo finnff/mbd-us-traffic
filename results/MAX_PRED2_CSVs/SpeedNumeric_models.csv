@@ -1,0 +1,17 @@
+traffictarget;predictorslist;significantvars;R2
+SpeedNumeric;[Visibility(mi), Pressure(in)];2;0.0332
+SpeedNumeric;[Visibility(mi), Humidity(%)];2;0.0234
+SpeedNumeric;[Visibility(mi), WindChill(F)];2;0.0232
+SpeedNumeric;[Visibility(mi), Temperature(F)];2;0.023
+SpeedNumeric;[Visibility(mi), WindSpeed(mph)];2;0.0229
+SpeedNumeric;[Humidity(%), Pressure(in)];2;0.0229
+SpeedNumeric;[Visibility(mi)];1;0.0229
+SpeedNumeric;[Pressure(in), WindChill(F)];2;0.018
+SpeedNumeric;[Pressure(in), Temperature(F)];2;0.0169
+SpeedNumeric;[WindSpeed(mph), Pressure(in)];2;0.0128
+...;...;...;...
+SpeedNumeric;[WindSpeed(mph), WindChill(F)];2;0.0066
+SpeedNumeric;[WindChill(F)];1;0.0065
+SpeedNumeric;[WindSpeed(mph), Temperature(F)];2;0.0055
+SpeedNumeric;[Temperature(F)];1;0.0053
+SpeedNumeric;[WindSpeed(mph)];1;0.0005

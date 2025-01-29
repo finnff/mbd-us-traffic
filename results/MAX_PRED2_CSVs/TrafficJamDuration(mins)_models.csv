@@ -1,0 +1,17 @@
+traffictarget;predictorslist;significantvars;R2
+TrafficJamDuration(mins);[Pressure(in), WindChill(F)];2;0.0479
+TrafficJamDuration(mins);[WindChill(F), Temperature(F)];2;0.047
+TrafficJamDuration(mins);[Visibility(mi), WindChill(F)];2;0.0458
+TrafficJamDuration(mins);[WindSpeed(mph), WindChill(F)];2;0.0457
+TrafficJamDuration(mins);[Pressure(in), Temperature(F)];2;0.0456
+TrafficJamDuration(mins);[WindChill(F)];1;0.0455
+TrafficJamDuration(mins);[Humidity(%), WindChill(F)];2;0.0455
+TrafficJamDuration(mins);[WindSpeed(mph), Temperature(F)];2;0.0439
+TrafficJamDuration(mins);[Visibility(mi), Temperature(F)];2;0.0437
+TrafficJamDuration(mins);[Temperature(F)];1;0.0432
+...;...;...;...
+TrafficJamDuration(mins);[Humidity(%), Pressure(in)];2;0.0083
+TrafficJamDuration(mins);[Humidity(%)];1;0.0072
+TrafficJamDuration(mins);[WindSpeed(mph), Pressure(in)];2;0.0044
+TrafficJamDuration(mins);[WindSpeed(mph)];1;0.0029
+TrafficJamDuration(mins);[Pressure(in)];1;0.0014

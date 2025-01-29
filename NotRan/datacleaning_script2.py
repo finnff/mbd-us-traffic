@@ -14,15 +14,10 @@ from pyspark.sql.functions import (
 from pyspark.sql.window import Window
 
 # Set Up
-spark = SparkSession.builder.appName("ProjectGroup16").getOrCreate()
+spark = SparkSession.builder.appName("askdlakls;da;sjdka;sl").getOrCreate()
 sc = spark.sparkContext
 sc.setLogLevel("ERROR")
-data_traffic = spark.read.option("header", True).csv(
-    "/user/s2899078/projectdata/us_congestion_2016_2022.csv.gz"
-)
-data_weather = spark.read.option("header", True).csv(
-    "/user/s2899078/projectdata/WeatherEvents_Jan2016-Dec2022.csv.gz"
-)
+data_traffic = spark.read.option("header", True).csv("us_congestion_2016_2022.csv")
 # Turn Times into timestamp
 data_traffic = data_traffic.withColumn(
     "StartTime", to_timestamp(col("StartTime"), "yyyy-MM-dd'T'HH:mm:ss.SSSXXX")

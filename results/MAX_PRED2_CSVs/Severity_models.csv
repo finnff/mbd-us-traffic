@@ -1,0 +1,17 @@
+traffictarget;predictorslist;significantvars;R2
+Severity;[Humidity(%), Pressure(in)];2;0.0079
+Severity;[Visibility(mi), Pressure(in)];2;0.0066
+Severity;[Pressure(in), WindChill(F)];2;0.0061
+Severity;[Pressure(in), Temperature(F)];2;0.0059
+Severity;[Pressure(in)];1;0.0051
+Severity;[WindSpeed(mph), Pressure(in)];2;0.0051
+Severity;[Visibility(mi), Humidity(%)];2;0.003
+Severity;[Humidity(%), WindChill(F)];2;0.0029
+Severity;[WindChill(F), Temperature(F)];2;0.0028
+Severity;[Humidity(%), Temperature(F)];2;0.0027
+...;...;...;...
+Severity;[WindSpeed(mph), WindChill(F)];2;0.0015
+Severity;[WindChill(F)];1;0.0013
+Severity;[WindSpeed(mph), Temperature(F)];2;0.0011
+Severity;[Temperature(F)];1;0.001
+Severity;[WindSpeed(mph)];1;0.0

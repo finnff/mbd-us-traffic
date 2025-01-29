@@ -1,0 +1,17 @@
+traffictarget;predictorslist;significantvars;RMSE;R2;AdjR2
+DelayFromTypicalTraffic(mins);[Temperature(F), Pressure(in), Humidity(%)];4;0.7385;0.0315;0.0315
+DelayFromTypicalTraffic(mins);[Pressure(in), Humidity(%), NeutralWeather];4;0.7385;0.0314;0.0314
+DelayFromTypicalTraffic(mins);[Pressure(in), Humidity(%), Visibility(mi)];4;0.7387;0.0309;0.0309
+DelayFromTypicalTraffic(mins);[WindChill(F), Pressure(in), Humidity(%)];4;0.7388;0.0308;0.0308
+DelayFromTypicalTraffic(mins);[Pressure(in), Humidity(%), BadWeather];4;0.7388;0.0307;0.0307
+DelayFromTypicalTraffic(mins);[Pressure(in), Humidity(%), WindSpeed(mph)];4;0.7392;0.0297;0.0297
+DelayFromTypicalTraffic(mins);[Pressure(in), Humidity(%), GoodWeather];4;0.7392;0.0297;0.0297
+DelayFromTypicalTraffic(mins);[Pressure(in), Humidity(%)];3;0.7392;0.0296;0.0296
+DelayFromTypicalTraffic(mins);[Pressure(in), Visibility(mi), BadWeather];4;0.7413;0.0243;0.0243
+DelayFromTypicalTraffic(mins);[Temperature(F), Pressure(in), Visibility(mi)];4;0.7413;0.0241;0.0241
+...;...;...;...;...;...
+DelayFromTypicalTraffic(mins);[Temperature(F), WindSpeed(mph)];3;0.7502;0.0006;0.0006
+DelayFromTypicalTraffic(mins);[WindSpeed(mph), NeutralWeather];3;0.7503;0.0004;0.0004
+DelayFromTypicalTraffic(mins);[Temperature(F)];2;0.7503;0.0004;0.0004
+DelayFromTypicalTraffic(mins);[NeutralWeather];2;0.7503;0.0002;0.0002
+DelayFromTypicalTraffic(mins);[WindSpeed(mph)];2;0.7503;0.0002;0.0002

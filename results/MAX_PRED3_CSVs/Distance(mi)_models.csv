@@ -1,0 +1,17 @@
+traffictarget;predictorslist;significantvars;RMSE;R2;AdjR2
+Distance(mi);[WindChill(F), Pressure(in), Visibility(mi)];4;0.5307;0.0506;0.0506
+Distance(mi);[Temperature(F), Pressure(in), Visibility(mi)];4;0.5309;0.0497;0.0497
+Distance(mi);[Pressure(in), Visibility(mi), BadWeather];4;0.5309;0.0497;0.0497
+Distance(mi);[Pressure(in), Humidity(%), Visibility(mi)];4;0.5316;0.0474;0.0474
+Distance(mi);[Pressure(in), Visibility(mi), GoodWeather];4;0.5316;0.0473;0.0473
+Distance(mi);[Pressure(in), WindSpeed(mph), Visibility(mi)];4;0.5317;0.0471;0.0471
+Distance(mi);[Pressure(in), Visibility(mi), NeutralWeather];4;0.5319;0.0464;0.0464
+Distance(mi);[Pressure(in), Visibility(mi)];3;0.5319;0.0463;0.0463
+Distance(mi);[WindChill(F), Pressure(in), BadWeather];4;0.5319;0.0461;0.0461
+Distance(mi);[Temperature(F), WindChill(F), Visibility(mi)];4;0.532;0.046;0.046
+...;...;...;...;...;...
+Distance(mi);[Pressure(in)];2;0.5417;0.0106;0.0106
+Distance(mi);[WindSpeed(mph)];2;0.5439;0.0027;0.0027
+Distance(mi);[WindSpeed(mph)];2;0.5439;0.0027;0.0027
+Distance(mi);[WindSpeed(mph), NeutralWeather];3;0.5439;0.0027;0.0027
+Distance(mi);[NeutralWeather];2;0.5446;0.0;0.0

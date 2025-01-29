@@ -1,0 +1,17 @@
+traffictarget;predictorslist;significantvars;RMSE;R2;AdjR2
+Severity;[Pressure(in), Humidity(%), BadWeather];4;0.4307;0.0081;0.0081
+Severity;[Pressure(in), Humidity(%), Visibility(mi)];4;0.4307;0.0081;0.0081
+Severity;[WindChill(F), Pressure(in), Humidity(%)];4;0.4307;0.008;0.008
+Severity;[Pressure(in), Humidity(%), NeutralWeather];4;0.4307;0.0079;0.0079
+Severity;[Temperature(F), Pressure(in), Humidity(%)];4;0.4307;0.0079;0.0079
+Severity;[Pressure(in), Humidity(%), GoodWeather];4;0.4307;0.0079;0.0079
+Severity;[Pressure(in), Humidity(%), WindSpeed(mph)];4;0.4307;0.0079;0.0079
+Severity;[Pressure(in), Humidity(%)];3;0.4307;0.0079;0.0079
+Severity;[Temperature(F), WindChill(F), Pressure(in)];4;0.4308;0.0076;0.0076
+Severity;[WindChill(F), Pressure(in), Visibility(mi)];4;0.4309;0.0069;0.0069
+...;...;...;...;...;...
+Severity;[Temperature(F)];2;0.4322;0.001;0.001
+Severity;[Temperature(F), NeutralWeather];3;0.4322;0.001;0.001
+Severity;[WindSpeed(mph), NeutralWeather];3;0.4324;0.0001;0.0001
+Severity;[NeutralWeather];2;0.4324;0.0;0.0
+Severity;[WindSpeed(mph)];2;0.4324;0.0;0.0

@@ -6,3 +6,5 @@ us_congestion_2016_2022.csv
 *.gz
 us_congestion_2016_2022SMALL.csv
 us_congestion*.csv
+USTraffic
+__pycache__

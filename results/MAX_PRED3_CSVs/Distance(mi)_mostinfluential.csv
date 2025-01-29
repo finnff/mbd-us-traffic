@@ -1,0 +1,10 @@
+WeatherVariable;Frequency
+Pressure(in);9
+Visibility(mi);9
+WindChill(F);3
+Temperature(F);2
+BadWeather;2
+Humidity(%);1
+GoodWeather;1
+WindSpeed(mph);1
+NeutralWeather;1

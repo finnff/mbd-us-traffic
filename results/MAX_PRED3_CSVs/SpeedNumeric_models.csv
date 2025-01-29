@@ -1,0 +1,17 @@
+traffictarget;predictorslist;significantvars;RMSE;R2;AdjR2
+SpeedNumeric;[Pressure(in), Visibility(mi), BadWeather];4;0.3895;0.0352;0.0352
+SpeedNumeric;[Pressure(in), Humidity(%), Visibility(mi)];4;0.3897;0.0342;0.0342
+SpeedNumeric;[Pressure(in), Visibility(mi), GoodWeather];4;0.3899;0.0335;0.0335
+SpeedNumeric;[WindChill(F), Pressure(in), Visibility(mi)];4;0.3899;0.0334;0.0334
+SpeedNumeric;[Pressure(in), Visibility(mi), NeutralWeather];4;0.3899;0.0333;0.0333
+SpeedNumeric;[Pressure(in), WindSpeed(mph), Visibility(mi)];4;0.39;0.0332;0.0332
+SpeedNumeric;[Temperature(F), Pressure(in), Visibility(mi)];4;0.3899;0.0332;0.0332
+SpeedNumeric;[Pressure(in), Visibility(mi)];3;0.39;0.0332;0.0332
+SpeedNumeric;[Pressure(in), Humidity(%), BadWeather];4;0.3903;0.0317;0.0317
+SpeedNumeric;[WindChill(F), Pressure(in), BadWeather];4;0.3905;0.0302;0.0302
+...;...;...;...;...;...
+SpeedNumeric;[Temperature(F), WindSpeed(mph)];3;0.3955;0.0055;0.0055
+SpeedNumeric;[Temperature(F)];2;0.3955;0.0053;0.0053
+SpeedNumeric;[WindSpeed(mph), NeutralWeather];3;0.3965;0.0006;0.0006
+SpeedNumeric;[WindSpeed(mph)];2;0.3965;0.0005;0.0005
+SpeedNumeric;[NeutralWeather];2;0.3966;0.0001;0.0001

@@ -1,0 +1,706 @@
+
+================================================================================
+Column: ID
+Missing Data: 0.00%
+
+Top 20 Most Frequent Values:
+  - C-470189: 1 occurrences (0.00% of non-missing)
+  - C-16861919: 1 occurrences (0.00% of non-missing)
+  - C-31244180: 1 occurrences (0.00% of non-missing)
+  - C-29877375: 1 occurrences (0.00% of non-missing)
+  - C-6867735: 1 occurrences (0.00% of non-missing)
+  - C-1797730: 1 occurrences (0.00% of non-missing)
+  - C-33022398: 1 occurrences (0.00% of non-missing)
+  - C-17292364: 1 occurrences (0.00% of non-missing)
+  - C-21789434: 1 occurrences (0.00% of non-missing)
+  - C-10844870: 1 occurrences (0.00% of non-missing)
+  - C-23730433: 1 occurrences (0.00% of non-missing)
+  - C-29065463: 1 occurrences (0.00% of non-missing)
+  - C-13622677: 1 occurrences (0.00% of non-missing)
+  - C-19012125: 1 occurrences (0.00% of non-missing)
+  - C-435693: 1 occurrences (0.00% of non-missing)
+  - C-7821415: 1 occurrences (0.00% of non-missing)
+  - C-29271695: 1 occurrences (0.00% of non-missing)
+  - C-5746645: 1 occurrences (0.00% of non-missing)
+  - C-8531223: 1 occurrences (0.00% of non-missing)
+  - C-6955926: 1 occurrences (0.00% of non-missing)
+
+================================================================================
+Column: Severity
+Missing Data: 0.00%
+
+Top 4 Most Frequent Values:
+  - 1: 77,938 occurrences (46.80% of non-missing)
+  - 2: 43,549 occurrences (26.15% of non-missing)
+  - 0: 40,311 occurrences (24.21% of non-missing)
+  - 3: 4,722 occurrences (2.84% of non-missing)
+
+================================================================================
+Column: Start_Lat
+Missing Data: 0.00%
+
+Top 20 Most Frequent Values:
+  - 26.48097000000001: 30 occurrences (0.02% of non-missing)
+  - 29.455536: 28 occurrences (0.02% of non-missing)
+  - 29.350363: 28 occurrences (0.02% of non-missing)
+  - 40.695107: 27 occurrences (0.02% of non-missing)
+  - 40.765541: 25 occurrences (0.02% of non-missing)
+  - 33.78986: 24 occurrences (0.01% of non-missing)
+  - 40.741508: 22 occurrences (0.01% of non-missing)
+  - 47.523399: 21 occurrences (0.01% of non-missing)
+  - 34.03598: 20 occurrences (0.01% of non-missing)
+  - 40.666691: 20 occurrences (0.01% of non-missing)
+  - 33.050831: 19 occurrences (0.01% of non-missing)
+  - 48.999859: 18 occurrences (0.01% of non-missing)
+  - 40.740829: 18 occurrences (0.01% of non-missing)
+  - 34.171108000000004: 17 occurrences (0.01% of non-missing)
+  - 37.77195: 17 occurrences (0.01% of non-missing)
+  - 40.759739: 17 occurrences (0.01% of non-missing)
+  - 40.76456500000001: 17 occurrences (0.01% of non-missing)
+  - 34.119671000000004: 16 occurrences (0.01% of non-missing)
+  - 27.907722: 16 occurrences (0.01% of non-missing)
+  - 34.17128: 16 occurrences (0.01% of non-missing)
+
+================================================================================
+Column: Start_Lng
+Missing Data: 0.00%
+
+Top 20 Most Frequent Values:
+  - -97.6054: 30 occurrences (0.02% of non-missing)
+  - -118.219879: 29 occurrences (0.02% of non-missing)
+  - -89.663963: 28 occurrences (0.02% of non-missing)
+  - -89.529289: 28 occurrences (0.02% of non-missing)
+  - -73.998497: 28 occurrences (0.02% of non-missing)
+  - -73.97625699999998: 24 occurrences (0.01% of non-missing)
+  - -117.550056: 24 occurrences (0.01% of non-missing)
+  - -122.198174: 21 occurrences (0.01% of non-missing)
+  - -73.994888: 20 occurrences (0.01% of non-missing)
+  - -73.97281600000002: 20 occurrences (0.01% of non-missing)
+  - -102.474266: 19 occurrences (0.01% of non-missing)
+  - -73.784599: 19 occurrences (0.01% of non-missing)
+  - -122.754623: 18 occurrences (0.01% of non-missing)
+  - -118.280617: 18 occurrences (0.01% of non-missing)
+  - -73.963844: 18 occurrences (0.01% of non-missing)
+  - -73.787033: 18 occurrences (0.01% of non-missing)
+  - -118.291573: 17 occurrences (0.01% of non-missing)
+  - -86.77555100000002: 16 occurrences (0.01% of non-missing)
+  - -99.393929: 16 occurrences (0.01% of non-missing)
+  - -77.01990500000002: 16 occurrences (0.01% of non-missing)
+
+================================================================================
+Column: StartTime
+Missing Data: 0.09%
+
+Top 20 Most Frequent Values:
+  - 2019-06-07T16:46:00.000-04:00: 15 occurrences (0.01% of non-missing)
+  - 2019-06-07T16:44:00.000-04:00: 13 occurrences (0.01% of non-missing)
+  - 2019-06-07T16:47:00.000-04:00: 13 occurrences (0.01% of non-missing)
+  - 2019-06-07T16:45:00.000-04:00: 12 occurrences (0.01% of non-missing)
+  - 2019-06-06T17:48:00.000-04:00: 11 occurrences (0.01% of non-missing)
+  - 2019-06-06T17:50:00.000-04:00: 10 occurrences (0.01% of non-missing)
+  - 2019-06-06T17:53:00.000-04:00: 10 occurrences (0.01% of non-missing)
+  - 2019-06-06T17:52:00.000-04:00: 8 occurrences (0.00% of non-missing)
+  - 2019-06-07T16:42:00.000-04:00: 8 occurrences (0.00% of non-missing)
+  - 2019-06-06T17:45:00.000-04:00: 8 occurrences (0.00% of non-missing)
+  - 2019-06-06T17:46:00.000-04:00: 7 occurrences (0.00% of non-missing)
+  - 2019-06-06T17:49:00.000-04:00: 7 occurrences (0.00% of non-missing)
+  - 2019-06-07T16:23:00.000-04:00: 7 occurrences (0.00% of non-missing)
+  - 2019-06-06T17:56:00.000-04:00: 6 occurrences (0.00% of non-missing)
+  - 2019-06-07T16:43:00.000-04:00: 6 occurrences (0.00% of non-missing)
+  - 2019-06-06T17:54:00.000-04:00: 5 occurrences (0.00% of non-missing)
+  - 2022-02-02T17:24:00.000-05:00: 4 occurrences (0.00% of non-missing)
+  - 2022-02-03T19:09:00.000-05:00: 4 occurrences (0.00% of non-missing)
+  - 2022-04-18T15:16:00.000-04:00: 4 occurrences (0.00% of non-missing)
+  - 2020-12-23T20:10:00.000-05:00: 4 occurrences (0.00% of non-missing)
+
+================================================================================
+Column: EndTime
+Missing Data: 0.09%
+
+Top 20 Most Frequent Values:
+  - 2018-08-28T16:41:16.000-04:00: 4 occurrences (0.00% of non-missing)
+  - 2019-01-19T22:13:31.000-05:00: 4 occurrences (0.00% of non-missing)
+  - 2019-06-07T17:28:09.000-04:00: 4 occurrences (0.00% of non-missing)
+  - 2019-06-06T18:30:46.000-04:00: 4 occurrences (0.00% of non-missing)
+  - 2019-12-03T01:35:27.000-05:00: 3 occurrences (0.00% of non-missing)
+  - 2022-01-16T10:36:08.000-05:00: 3 occurrences (0.00% of non-missing)
+  - 2018-07-27T16:32:53.000-04:00: 3 occurrences (0.00% of non-missing)
+  - 2018-06-12T18:21:08.000-04:00: 3 occurrences (0.00% of non-missing)
+  - 2022-04-29T13:33:55.000-04:00: 3 occurrences (0.00% of non-missing)
+  - 2019-06-06T18:33:01.000-04:00: 3 occurrences (0.00% of non-missing)
+  - 2018-10-04T20:56:06.000-04:00: 3 occurrences (0.00% of non-missing)
+  - 2016-06-23T23:34:22.000-04:00: 3 occurrences (0.00% of non-missing)
+  - 2020-10-16T17:55:30.000-04:00: 3 occurrences (0.00% of non-missing)
+  - 2021-10-05T17:12:57.000-04:00: 3 occurrences (0.00% of non-missing)
+  - 2019-02-08T21:12:25.000-05:00: 3 occurrences (0.00% of non-missing)
+  - 2016-12-23T15:37:41.000-05:00: 3 occurrences (0.00% of non-missing)
+  - 2019-12-15T15:37:32.000-05:00: 3 occurrences (0.00% of non-missing)
+  - 2019-06-06T18:37:32.000-04:00: 3 occurrences (0.00% of non-missing)
+  - 2019-02-20T10:50:17.000-05:00: 3 occurrences (0.00% of non-missing)
+  - 2019-09-20T18:45:21.000-04:00: 3 occurrences (0.00% of non-missing)
+
+================================================================================
+Column: Distance(mi)
+Missing Data: 0.00%
+
+Top 20 Most Frequent Values:
+  - 0.0: 6,344 occurrences (3.81% of non-missing)
+  - 0.75: 476 occurrences (0.29% of non-missing)
+  - 1.6200000047683716: 447 occurrences (0.27% of non-missing)
+  - 0.7400000095367432: 430 occurrences (0.26% of non-missing)
+  - 0.7599999904632568: 426 occurrences (0.26% of non-missing)
+  - 0.7300000190734863: 422 occurrences (0.25% of non-missing)
+  - 1.6100000143051147: 421 occurrences (0.25% of non-missing)
+  - 1.6299999952316284: 420 occurrences (0.25% of non-missing)
+  - 1.6399999856948853: 416 occurrences (0.25% of non-missing)
+  - 2.039999961853028: 415 occurrences (0.25% of non-missing)
+  - 1.4199999570846558: 411 occurrences (0.25% of non-missing)
+  - 1.5299999713897705: 411 occurrences (0.25% of non-missing)
+  - 0.7699999809265137: 411 occurrences (0.25% of non-missing)
+  - 1.6699999570846558: 409 occurrences (0.25% of non-missing)
+  - 1.9600000381469729: 408 occurrences (0.25% of non-missing)
+  - 1.75: 408 occurrences (0.25% of non-missing)
+  - 0.7200000286102295: 404 occurrences (0.24% of non-missing)
+  - 1.7300000190734863: 403 occurrences (0.24% of non-missing)
+  - 1.7200000286102295: 403 occurrences (0.24% of non-missing)
+  - 1.820000052452088: 402 occurrences (0.24% of non-missing)
+
+================================================================================
+Column: DelayFromTypicalTraffic(mins)
+Missing Data: 0.00%
+
+Top 20 Most Frequent Values:
+  - 0.0: 32,370 occurrences (19.44% of non-missing)
+  - 1.0: 19,803 occurrences (11.89% of non-missing)
+  - 2.0: 15,893 occurrences (9.54% of non-missing)
+  - 3.0: 9,044 occurrences (5.43% of non-missing)
+  - 4.0: 6,389 occurrences (3.84% of non-missing)
+  - 5.0: 4,604 occurrences (2.76% of non-missing)
+  - 6.0: 3,118 occurrences (1.87% of non-missing)
+  - 7.0: 2,295 occurrences (1.38% of non-missing)
+  - 8.0: 1,529 occurrences (0.92% of non-missing)
+  - 9.0: 1,133 occurrences (0.68% of non-missing)
+  - 10.0: 772 occurrences (0.46% of non-missing)
+  - 11.0: 605 occurrences (0.36% of non-missing)
+  - 12.0: 464 occurrences (0.28% of non-missing)
+  - 0.6000000238418579: 362 occurrences (0.22% of non-missing)
+  - 13.0: 352 occurrences (0.21% of non-missing)
+  - 0.3199999928474426: 327 occurrences (0.20% of non-missing)
+  - 0.5: 327 occurrences (0.20% of non-missing)
+  - 0.0199999995529651: 320 occurrences (0.19% of non-missing)
+  - 1.2200000286102295: 320 occurrences (0.19% of non-missing)
+  - 0.9200000166893004: 320 occurrences (0.19% of non-missing)
+
+================================================================================
+Column: DelayFromFreeFlowSpeed(mins)
+Missing Data: 0.00%
+
+Top 20 Most Frequent Values:
+  - 2.0: 23,190 occurrences (13.93% of non-missing)
+  - 3.0: 13,092 occurrences (7.86% of non-missing)
+  - 1.0: 12,796 occurrences (7.68% of non-missing)
+  - 4.0: 9,934 occurrences (5.97% of non-missing)
+  - 0.0: 7,457 occurrences (4.48% of non-missing)
+  - 5.0: 7,256 occurrences (4.36% of non-missing)
+  - 6.0: 5,002 occurrences (3.00% of non-missing)
+  - 7.0: 3,609 occurrences (2.17% of non-missing)
+  - 8.0: 2,329 occurrences (1.40% of non-missing)
+  - 9.0: 1,702 occurrences (1.02% of non-missing)
+  - 10.0: 1,186 occurrences (0.71% of non-missing)
+  - 11.0: 885 occurrences (0.53% of non-missing)
+  - 12.0: 714 occurrences (0.43% of non-missing)
+  - 13.0: 566 occurrences (0.34% of non-missing)
+  - 14.0: 445 occurrences (0.27% of non-missing)
+  - 15.0: 374 occurrences (0.22% of non-missing)
+  - 1.919999957084656: 355 occurrences (0.21% of non-missing)
+  - 1.8999999761581416: 340 occurrences (0.20% of non-missing)
+  - 1.9299999475479128: 316 occurrences (0.19% of non-missing)
+  - 2.0199999809265137: 315 occurrences (0.19% of non-missing)
+
+================================================================================
+Column: Congestion_Speed
+Missing Data: 0.00%
+
+Top 3 Most Frequent Values:
+  - Moderate: 66,345 occurrences (39.84% of non-missing)
+  - Fast: 60,167 occurrences (36.13% of non-missing)
+  - Slow: 40,008 occurrences (24.03% of non-missing)
+
+================================================================================
+Column: Description
+Missing Data: 0.00%
+
+Top 20 Most Frequent Values:
+  - Delays of two minutes on Riverside Fwy Eastbound in Santa Ana. Average speed 30 mph.: 18 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Pearl Harbor Memorial Highway Eastbound in Phoenix. Average speed 30 mph.: 15 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Federal Hwy Northbound in Fort Lauderdale. Average speed five mph.: 15 occurrences (0.01% of non-missing)
+  - Delays of two minutes on San Diego Fwy Southbound in LA. Average speed 30 mph.: 14 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Long Island Expy Eastbound in Queens. Average speed 20 mph.: 14 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Roosevelt Blvd Eastbound in Philadelphia. Average speed five mph.: 14 occurrences (0.01% of non-missing)
+  - Delays of two minutes on San Bernardino Fwy Eastbound in Monterey Park. Average speed 25 mph.: 14 occurrences (0.01% of non-missing)
+  - Delays of three minutes and delays easing on TX-186 Westbound between TX-186 and El Toro Rd. Average speed 40 mph.: 13 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Biscayne Blvd Southbound in Miami. Average speed ten mph.: 13 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Riverside Fwy Eastbound in Riverside. Average speed 30 mph.: 12 occurrences (0.01% of non-missing)
+  - Delays of two minutes on LA-23 Southbound in Fosters Canal. Average speed 40 mph.: 12 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Federal Hwy Northbound in Boynton Beach. Average speed five mph.: 11 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Riverside Fwy Westbound in Riverside. Average speed 25 mph.: 11 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Van Ness Ave Northbound in San Francisco. Average speed five mph.: 11 occurrences (0.01% of non-missing)
+  - Delays of two minutes and delays easing on LA-23 Southbound in Buras. Average speed 40 mph.: 10 occurrences (0.01% of non-missing)
+  - Delays of two minutes on San Bernardino Fwy Eastbound in Monterey Park. Average speed 30 mph.: 10 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Orange Blossom Trl Southbound in Kissimmee. Average speed ten mph.: 10 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Riverside Fwy Westbound in Santa Ana. Average speed 25 mph.: 10 occurrences (0.01% of non-missing)
+  - Delays of three minutes on I-5 Southbound between I-5 and Exit 276 D St. Average speed five mph.: 9 occurrences (0.01% of non-missing)
+  - Delays of two minutes on Federal Hwy Southbound in Fort Lauderdale. Average speed five mph.: 9 occurrences (0.01% of non-missing)
+
+================================================================================
+Column: Street
+Missing Data: 0.01%
+
+Top 20 Most Frequent Values:
+  - I-5 N: 1,613 occurrences (0.97% of non-missing)
+  - I-95 N: 1,495 occurrences (0.90% of non-missing)
+  - I-95 S: 1,490 occurrences (0.89% of non-missing)
+  - I-10 E: 1,390 occurrences (0.83% of non-missing)
+  - I-80 W: 1,167 occurrences (0.70% of non-missing)
+  - I-10 W: 1,060 occurrences (0.64% of non-missing)
+  - I-90 E: 1,017 occurrences (0.61% of non-missing)
+  - I-80 E: 986 occurrences (0.59% of non-missing)
+  - I-5 S: 900 occurrences (0.54% of non-missing)
+  - I-70 E: 878 occurrences (0.53% of non-missing)
+  - I-405 N: 791 occurrences (0.48% of non-missing)
+  - I-90 W: 778 occurrences (0.47% of non-missing)
+  - I-70 W: 702 occurrences (0.42% of non-missing)
+  - Main St: 635 occurrences (0.38% of non-missing)
+  - I-94 W: 629 occurrences (0.38% of non-missing)
+  - I-75 S: 623 occurrences (0.37% of non-missing)
+  - I-75 N: 603 occurrences (0.36% of non-missing)
+  - I-35 N: 558 occurrences (0.34% of non-missing)
+  - I-35 S: 553 occurrences (0.33% of non-missing)
+  - Broadway: 520 occurrences (0.31% of non-missing)
+
+================================================================================
+Column: City
+Missing Data: 0.01%
+
+Top 20 Most Frequent Values:
+  - Chicago: 4,785 occurrences (2.87% of non-missing)
+  - Los Angeles: 4,466 occurrences (2.68% of non-missing)
+  - New York: 3,291 occurrences (1.98% of non-missing)
+  - Brooklyn: 3,134 occurrences (1.88% of non-missing)
+  - Houston: 2,902 occurrences (1.74% of non-missing)
+  - Miami: 2,786 occurrences (1.67% of non-missing)
+  - Dallas: 1,688 occurrences (1.01% of non-missing)
+  - Bronx: 1,590 occurrences (0.95% of non-missing)
+  - Atlanta: 1,485 occurrences (0.89% of non-missing)
+  - Philadelphia: 1,405 occurrences (0.84% of non-missing)
+  - San Francisco: 1,139 occurrences (0.68% of non-missing)
+  - Austin: 1,075 occurrences (0.65% of non-missing)
+  - Washington: 980 occurrences (0.59% of non-missing)
+  - San Antonio: 922 occurrences (0.55% of non-missing)
+  - Phoenix: 908 occurrences (0.55% of non-missing)
+  - Orlando: 791 occurrences (0.48% of non-missing)
+  - Seattle: 763 occurrences (0.46% of non-missing)
+  - Portland: 744 occurrences (0.45% of non-missing)
+  - Denver: 724 occurrences (0.43% of non-missing)
+  - San Diego: 674 occurrences (0.40% of non-missing)
+
+================================================================================
+Column: County
+Missing Data: 0.00%
+
+Top 20 Most Frequent Values:
+  - Los Angeles: 11,816 occurrences (7.10% of non-missing)
+  - Cook: 6,568 occurrences (3.94% of non-missing)
+  - Miami-Dade: 3,942 occurrences (2.37% of non-missing)
+  - Orange: 3,379 occurrences (2.03% of non-missing)
+  - New York: 3,333 occurrences (2.00% of non-missing)
+  - Harris: 3,332 occurrences (2.00% of non-missing)
+  - Queens: 3,211 occurrences (1.93% of non-missing)
+  - Kings: 3,135 occurrences (1.88% of non-missing)
+  - Dallas: 2,306 occurrences (1.38% of non-missing)
+  - Suffolk: 1,929 occurrences (1.16% of non-missing)
+  - King: 1,839 occurrences (1.10% of non-missing)
+  - Montgomery: 1,836 occurrences (1.10% of non-missing)
+  - Alameda: 1,788 occurrences (1.07% of non-missing)
+  - Maricopa: 1,777 occurrences (1.07% of non-missing)
+  - Middlesex: 1,693 occurrences (1.02% of non-missing)
+  - Bronx: 1,585 occurrences (0.95% of non-missing)
+  - Nassau: 1,466 occurrences (0.88% of non-missing)
+  - Fulton: 1,436 occurrences (0.86% of non-missing)
+  - San Diego: 1,430 occurrences (0.86% of non-missing)
+  - Jefferson: 1,409 occurrences (0.85% of non-missing)
+
+================================================================================
+Column: State
+Missing Data: 0.00%
+
+Top 20 Most Frequent Values:
+  - CA: 28,694 occurrences (17.23% of non-missing)
+  - NY: 16,821 occurrences (10.10% of non-missing)
+  - TX: 15,944 occurrences (9.57% of non-missing)
+  - FL: 13,497 occurrences (8.11% of non-missing)
+  - IL: 8,603 occurrences (5.17% of non-missing)
+  - PA: 7,492 occurrences (4.50% of non-missing)
+  - GA: 5,680 occurrences (3.41% of non-missing)
+  - MA: 4,638 occurrences (2.79% of non-missing)
+  - VA: 4,241 occurrences (2.55% of non-missing)
+  - NJ: 4,092 occurrences (2.46% of non-missing)
+  - WA: 3,922 occurrences (2.36% of non-missing)
+  - MD: 3,728 occurrences (2.24% of non-missing)
+  - MI: 3,705 occurrences (2.22% of non-missing)
+  - CO: 3,677 occurrences (2.21% of non-missing)
+  - OH: 3,105 occurrences (1.86% of non-missing)
+  - NC: 2,865 occurrences (1.72% of non-missing)
+  - TN: 2,758 occurrences (1.66% of non-missing)
+  - AZ: 2,435 occurrences (1.46% of non-missing)
+  - OR: 2,240 occurrences (1.35% of non-missing)
+  - CT: 2,137 occurrences (1.28% of non-missing)
+
+================================================================================
+Column: Country
+Missing Data: 0.00%
+
+Top 1 Most Frequent Values:
+  - US: 166,520 occurrences (100.00% of non-missing)
+
+================================================================================
+Column: ZipCode
+Missing Data: 0.06%
+
+Top 20 Most Frequent Values:
+  - 91761: 208 occurrences (0.12% of non-missing)
+  - 11201: 195 occurrences (0.12% of non-missing)
+  - 19104: 191 occurrences (0.11% of non-missing)
+  - 92507: 184 occurrences (0.11% of non-missing)
+  - 98922: 156 occurrences (0.09% of non-missing)
+  - 92407: 153 occurrences (0.09% of non-missing)
+  - 90023: 153 occurrences (0.09% of non-missing)
+  - 60618: 151 occurrences (0.09% of non-missing)
+  - 92808: 150 occurrences (0.09% of non-missing)
+  - 33169: 148 occurrences (0.09% of non-missing)
+  - 90012: 139 occurrences (0.08% of non-missing)
+  - 91765: 138 occurrences (0.08% of non-missing)
+  - 81657: 137 occurrences (0.08% of non-missing)
+  - 30253: 136 occurrences (0.08% of non-missing)
+  - 98056: 135 occurrences (0.08% of non-missing)
+  - 90015: 134 occurrences (0.08% of non-missing)
+  - 90003: 133 occurrences (0.08% of non-missing)
+  - 30339: 130 occurrences (0.08% of non-missing)
+  - 97801: 128 occurrences (0.08% of non-missing)
+  - 90031: 124 occurrences (0.07% of non-missing)
+
+================================================================================
+Column: LocalTimeZone
+Missing Data: 0.09%
+
+Top 4 Most Frequent Values:
+  - US/Eastern: 80,632 occurrences (48.46% of non-missing)
+  - US/Central: 39,792 occurrences (23.92% of non-missing)
+  - US/Pacific: 35,637 occurrences (21.42% of non-missing)
+  - US/Mountain: 10,315 occurrences (6.20% of non-missing)
+
+================================================================================
+Column: WeatherStation_AirportCode
+Missing Data: 0.16%
+
+Top 20 Most Frequent Values:
+  - KMDW: 3,894 occurrences (2.34% of non-missing)
+  - KLGA: 3,861 occurrences (2.32% of non-missing)
+  - KCQT: 3,440 occurrences (2.07% of non-missing)
+  - KJRB: 3,363 occurrences (2.02% of non-missing)
+  - KNYC: 3,312 occurrences (1.99% of non-missing)
+  - KORD: 2,355 occurrences (1.42% of non-missing)
+  - KJFK: 2,079 occurrences (1.25% of non-missing)
+  - KMIA: 1,778 occurrences (1.07% of non-missing)
+  - KMCJ: 1,578 occurrences (0.95% of non-missing)
+  - KSMO: 1,477 occurrences (0.89% of non-missing)
+  - KPHL: 1,459 occurrences (0.88% of non-missing)
+  - KDCA: 1,443 occurrences (0.87% of non-missing)
+  - KPDK: 1,431 occurrences (0.86% of non-missing)
+  - KBOS: 1,326 occurrences (0.80% of non-missing)
+  - KSNA: 1,234 occurrences (0.74% of non-missing)
+  - KHHR: 1,233 occurrences (0.74% of non-missing)
+  - KEMT: 1,133 occurrences (0.68% of non-missing)
+  - KHPN: 1,106 occurrences (0.67% of non-missing)
+  - KDAL: 1,044 occurrences (0.63% of non-missing)
+  - KBNA: 1,037 occurrences (0.62% of non-missing)
+
+================================================================================
+Column: WeatherTimeStamp
+Missing Data: 1.62%
+
+Top 20 Most Frequent Values:
+  - 2019-06-06T17:53:00.000-04:00: 39 occurrences (0.02% of non-missing)
+  - 2019-05-29T19:53:00.000-04:00: 25 occurrences (0.02% of non-missing)
+  - 2019-06-07T16:53:00.000-04:00: 24 occurrences (0.01% of non-missing)
+  - 2018-01-03T14:53:00.000-05:00: 18 occurrences (0.01% of non-missing)
+  - 2020-11-13T15:53:00.000-05:00: 18 occurrences (0.01% of non-missing)
+  - 2021-02-16T15:53:00.000-05:00: 17 occurrences (0.01% of non-missing)
+  - 2019-02-14T17:53:00.000-05:00: 17 occurrences (0.01% of non-missing)
+  - 2017-12-15T15:53:00.000-05:00: 17 occurrences (0.01% of non-missing)
+  - 2019-06-06T17:56:00.000-04:00: 17 occurrences (0.01% of non-missing)
+  - 2021-03-26T17:53:00.000-04:00: 16 occurrences (0.01% of non-missing)
+  - 2019-03-01T17:53:00.000-05:00: 16 occurrences (0.01% of non-missing)
+  - 2021-02-16T11:53:00.000-05:00: 16 occurrences (0.01% of non-missing)
+  - 2018-11-08T17:53:00.000-05:00: 15 occurrences (0.01% of non-missing)
+  - 2021-03-25T17:53:00.000-04:00: 15 occurrences (0.01% of non-missing)
+  - 2021-03-19T15:53:00.000-04:00: 15 occurrences (0.01% of non-missing)
+  - 2021-03-17T17:53:00.000-04:00: 15 occurrences (0.01% of non-missing)
+  - 2021-02-17T16:53:00.000-05:00: 15 occurrences (0.01% of non-missing)
+  - 2021-03-26T16:53:00.000-04:00: 15 occurrences (0.01% of non-missing)
+  - 2021-03-05T17:53:00.000-05:00: 15 occurrences (0.01% of non-missing)
+  - 2021-02-20T14:53:00.000-05:00: 15 occurrences (0.01% of non-missing)
+
+================================================================================
+Column: Temperature(F)
+Missing Data: 2.21%
+
+Top 20 Most Frequent Values:
+  - 77.0: 3,605 occurrences (2.21% of non-missing)
+  - 73.0: 3,364 occurrences (2.07% of non-missing)
+  - 68.0: 3,342 occurrences (2.05% of non-missing)
+  - 72.0: 3,172 occurrences (1.95% of non-missing)
+  - 75.0: 3,089 occurrences (1.90% of non-missing)
+  - 70.0: 3,036 occurrences (1.86% of non-missing)
+  - 79.0: 2,982 occurrences (1.83% of non-missing)
+  - 59.0: 2,869 occurrences (1.76% of non-missing)
+  - 64.0: 2,847 occurrences (1.75% of non-missing)
+  - 63.0: 2,799 occurrences (1.72% of non-missing)
+  - 66.0: 2,763 occurrences (1.70% of non-missing)
+  - 81.0: 2,691 occurrences (1.65% of non-missing)
+  - 82.0: 2,625 occurrences (1.61% of non-missing)
+  - 61.0: 2,604 occurrences (1.60% of non-missing)
+  - 57.0: 2,311 occurrences (1.42% of non-missing)
+  - 32.0: 2,249 occurrences (1.38% of non-missing)
+  - 84.0: 2,162 occurrences (1.33% of non-missing)
+  - 86.0: 2,144 occurrences (1.32% of non-missing)
+  - 54.0: 2,017 occurrences (1.24% of non-missing)
+  - 50.0: 1,992 occurrences (1.22% of non-missing)
+
+================================================================================
+Column: WindChill(F)
+Missing Data: 37.86%
+
+Top 20 Most Frequent Values:
+  - 73.0: 2,141 occurrences (2.07% of non-missing)
+  - 75.0: 1,977 occurrences (1.91% of non-missing)
+  - 72.0: 1,962 occurrences (1.90% of non-missing)
+  - 77.0: 1,916 occurrences (1.85% of non-missing)
+  - 64.0: 1,853 occurrences (1.79% of non-missing)
+  - 70.0: 1,845 occurrences (1.78% of non-missing)
+  - 79.0: 1,835 occurrences (1.77% of non-missing)
+  - 63.0: 1,786 occurrences (1.73% of non-missing)
+  - 68.0: 1,766 occurrences (1.71% of non-missing)
+  - 81.0: 1,689 occurrences (1.63% of non-missing)
+  - 66.0: 1,678 occurrences (1.62% of non-missing)
+  - 82.0: 1,671 occurrences (1.61% of non-missing)
+  - 74.0: 1,635 occurrences (1.58% of non-missing)
+  - 71.0: 1,624 occurrences (1.57% of non-missing)
+  - 61.0: 1,590 occurrences (1.54% of non-missing)
+  - 76.0: 1,573 occurrences (1.52% of non-missing)
+  - 67.0: 1,544 occurrences (1.49% of non-missing)
+  - 59.0: 1,515 occurrences (1.46% of non-missing)
+  - 78.0: 1,510 occurrences (1.46% of non-missing)
+  - 65.0: 1,475 occurrences (1.43% of non-missing)
+
+================================================================================
+Column: Humidity(%)
+Missing Data: 2.32%
+
+Top 20 Most Frequent Values:
+  - 100.0: 5,325 occurrences (3.27% of non-missing)
+  - 93.0: 5,117 occurrences (3.15% of non-missing)
+  - 96.0: 3,001 occurrences (1.85% of non-missing)
+  - 89.0: 2,825 occurrences (1.74% of non-missing)
+  - 87.0: 2,728 occurrences (1.68% of non-missing)
+  - 90.0: 2,722 occurrences (1.67% of non-missing)
+  - 88.0: 2,701 occurrences (1.66% of non-missing)
+  - 81.0: 2,675 occurrences (1.64% of non-missing)
+  - 65.0: 2,576 occurrences (1.58% of non-missing)
+  - 92.0: 2,568 occurrences (1.58% of non-missing)
+  - 84.0: 2,556 occurrences (1.57% of non-missing)
+  - 78.0: 2,517 occurrences (1.55% of non-missing)
+  - 62.0: 2,443 occurrences (1.50% of non-missing)
+  - 61.0: 2,431 occurrences (1.49% of non-missing)
+  - 57.0: 2,386 occurrences (1.47% of non-missing)
+  - 86.0: 2,362 occurrences (1.45% of non-missing)
+  - 67.0: 2,357 occurrences (1.45% of non-missing)
+  - 52.0: 2,350 occurrences (1.44% of non-missing)
+  - 63.0: 2,333 occurrences (1.43% of non-missing)
+  - 59.0: 2,320 occurrences (1.43% of non-missing)
+
+================================================================================
+Column: Pressure(in)
+Missing Data: 2.06%
+
+Top 20 Most Frequent Values:
+  - 29.99: 2,915 occurrences (1.79% of non-missing)
+  - 29.96: 2,900 occurrences (1.78% of non-missing)
+  - 30.04: 2,784 occurrences (1.71% of non-missing)
+  - 30.01: 2,761 occurrences (1.69% of non-missing)
+  - 30.06: 2,713 occurrences (1.66% of non-missing)
+  - 29.94: 2,691 occurrences (1.65% of non-missing)
+  - 29.97: 2,567 occurrences (1.57% of non-missing)
+  - 29.91: 2,545 occurrences (1.56% of non-missing)
+  - 29.98: 2,521 occurrences (1.55% of non-missing)
+  - 29.95: 2,503 occurrences (1.53% of non-missing)
+  - 30.03: 2,487 occurrences (1.52% of non-missing)
+  - 30.0: 2,481 occurrences (1.52% of non-missing)
+  - 29.93: 2,427 occurrences (1.49% of non-missing)
+  - 30.02: 2,389 occurrences (1.46% of non-missing)
+  - 30.05: 2,364 occurrences (1.45% of non-missing)
+  - 29.88: 2,275 occurrences (1.39% of non-missing)
+  - 29.92: 2,261 occurrences (1.39% of non-missing)
+  - 30.07: 2,253 occurrences (1.38% of non-missing)
+  - 30.09: 2,218 occurrences (1.36% of non-missing)
+  - 29.9: 2,147 occurrences (1.32% of non-missing)
+
+================================================================================
+Column: Visibility(mi)
+Missing Data: 2.94%
+
+Top 20 Most Frequent Values:
+  - 10.0: 125,351 occurrences (77.56% of non-missing)
+  - 7.0: 4,175 occurrences (2.58% of non-missing)
+  - 9.0: 3,796 occurrences (2.35% of non-missing)
+  - 1.0: 3,537 occurrences (2.19% of non-missing)
+  - 5.0: 2,835 occurrences (1.75% of non-missing)
+  - 2.0: 2,822 occurrences (1.75% of non-missing)
+  - 8.0: 2,778 occurrences (1.72% of non-missing)
+  - 3.0: 2,591 occurrences (1.60% of non-missing)
+  - 4.0: 2,471 occurrences (1.53% of non-missing)
+  - 6.0: 2,363 occurrences (1.46% of non-missing)
+  - 0.5: 2,093 occurrences (1.29% of non-missing)
+  - 0.2: 967 occurrences (0.60% of non-missing)
+  - 0.75: 953 occurrences (0.59% of non-missing)
+  - 0.8: 836 occurrences (0.52% of non-missing)
+  - 2.5: 825 occurrences (0.51% of non-missing)
+  - 0.25: 811 occurrences (0.50% of non-missing)
+  - 1.5: 585 occurrences (0.36% of non-missing)
+  - 1.8: 467 occurrences (0.29% of non-missing)
+  - 1.2: 419 occurrences (0.26% of non-missing)
+  - 13.0: 155 occurrences (0.10% of non-missing)
+
+================================================================================
+Column: WindDir
+Missing Data: 2.37%
+
+Top 20 Most Frequent Values:
+  - CALM: 11,011 occurrences (6.77% of non-missing)
+  - Calm: 10,311 occurrences (6.34% of non-missing)
+  - WNW: 9,093 occurrences (5.59% of non-missing)
+  - NW: 8,786 occurrences (5.40% of non-missing)
+  - SSW: 8,089 occurrences (4.98% of non-missing)
+  - NNW: 8,079 occurrences (4.97% of non-missing)
+  - WSW: 8,021 occurrences (4.93% of non-missing)
+  - SW: 7,682 occurrences (4.73% of non-missing)
+  - SSE: 7,202 occurrences (4.43% of non-missing)
+  - W: 7,132 occurrences (4.39% of non-missing)
+  - S: 6,743 occurrences (4.15% of non-missing)
+  - SE: 6,094 occurrences (3.75% of non-missing)
+  - West: 6,083 occurrences (3.74% of non-missing)
+  - N: 6,044 occurrences (3.72% of non-missing)
+  - North: 6,025 occurrences (3.71% of non-missing)
+  - NNE: 6,014 occurrences (3.70% of non-missing)
+  - NE: 5,968 occurrences (3.67% of non-missing)
+  - South: 5,762 occurrences (3.54% of non-missing)
+  - ENE: 5,686 occurrences (3.50% of non-missing)
+  - ESE: 5,376 occurrences (3.31% of non-missing)
+
+================================================================================
+Column: WindSpeed(mph)
+Missing Data: 9.45%
+
+Top 20 Most Frequent Values:
+  - 0.0: 11,011 occurrences (7.30% of non-missing)
+  - 6.0: 7,772 occurrences (5.15% of non-missing)
+  - 5.0: 7,728 occurrences (5.13% of non-missing)
+  - 7.0: 7,632 occurrences (5.06% of non-missing)
+  - 8.0: 7,443 occurrences (4.94% of non-missing)
+  - 3.0: 6,987 occurrences (4.63% of non-missing)
+  - 5.8: 6,942 occurrences (4.60% of non-missing)
+  - 9.0: 6,855 occurrences (4.55% of non-missing)
+  - 4.6: 6,765 occurrences (4.49% of non-missing)
+  - 6.9: 6,466 occurrences (4.29% of non-missing)
+  - 3.5: 6,233 occurrences (4.13% of non-missing)
+  - 8.1: 6,131 occurrences (4.07% of non-missing)
+  - 10.0: 6,100 occurrences (4.05% of non-missing)
+  - 9.2: 5,768 occurrences (3.83% of non-missing)
+  - 12.0: 5,377 occurrences (3.57% of non-missing)
+  - 15.0: 4,997 occurrences (3.31% of non-missing)
+  - 10.4: 4,901 occurrences (3.25% of non-missing)
+  - 11.5: 4,477 occurrences (2.97% of non-missing)
+  - 13.0: 4,342 occurrences (2.88% of non-missing)
+  - 14.0: 3,701 occurrences (2.45% of non-missing)
+
+================================================================================
+Column: Precipitation(in)
+Missing Data: 41.20%
+
+Top 20 Most Frequent Values:
+  - 0.0: 84,111 occurrences (85.90% of non-missing)
+  - 0.01: 4,053 occurrences (4.14% of non-missing)
+  - 0.02: 2,272 occurrences (2.32% of non-missing)
+  - 0.03: 1,385 occurrences (1.41% of non-missing)
+  - 0.04: 1,015 occurrences (1.04% of non-missing)
+  - 0.05: 810 occurrences (0.83% of non-missing)
+  - 0.06: 616 occurrences (0.63% of non-missing)
+  - 0.07: 486 occurrences (0.50% of non-missing)
+  - 0.08: 411 occurrences (0.42% of non-missing)
+  - 0.09: 358 occurrences (0.37% of non-missing)
+  - 0.1: 282 occurrences (0.29% of non-missing)
+  - 0.11: 219 occurrences (0.22% of non-missing)
+  - 0.12: 198 occurrences (0.20% of non-missing)
+  - 0.13: 147 occurrences (0.15% of non-missing)
+  - 0.14: 147 occurrences (0.15% of non-missing)
+  - 0.15: 92 occurrences (0.09% of non-missing)
+  - 0.17: 91 occurrences (0.09% of non-missing)
+  - 0.16: 78 occurrences (0.08% of non-missing)
+  - 0.19: 67 occurrences (0.07% of non-missing)
+  - 0.2: 67 occurrences (0.07% of non-missing)
+
+================================================================================
+Column: Weather_Event
+Missing Data: 93.53%
+
+Top 14 Most Frequent Values:
+  - Snow: 4,224 occurrences (39.23% of non-missing)
+  - Rain: 4,110 occurrences (38.17% of non-missing)
+  - Fog ;Snow: 936 occurrences (8.69% of non-missing)
+  - Rain ;Thunderstorm: 506 occurrences (4.70% of non-missing)
+  - Fog: 490 occurrences (4.55% of non-missing)
+  - Thunderstorm: 428 occurrences (3.98% of non-missing)
+  - Fog ;Rain: 27 occurrences (0.25% of non-missing)
+  - Rain ;Snow: 17 occurrences (0.16% of non-missing)
+  - Snow ;Thunderstorm: 9 occurrences (0.08% of non-missing)
+  - Fog ;Rain ;Thunderstorm: 8 occurrences (0.07% of non-missing)
+  - Fog ;Snow ;Thunderstorm: 8 occurrences (0.07% of non-missing)
+  - Fog ;Thunderstorm: 2 occurrences (0.02% of non-missing)
+  - Tornado: 1 occurrences (0.01% of non-missing)
+  - Fog ;Rain ;Thunderstorm ;Tornado: 1 occurrences (0.01% of non-missing)
+
+================================================================================
+Column: Weather_Conditions
+Missing Data: 2.85%
+
+Top 20 Most Frequent Values:
+  - Fair: 37,904 occurrences (23.43% of non-missing)
+  - Clear: 25,849 occurrences (15.98% of non-missing)
+  - Mostly Cloudy: 22,039 occurrences (13.62% of non-missing)
+  - Partly Cloudy: 15,049 occurrences (9.30% of non-missing)
+  - Cloudy: 13,095 occurrences (8.09% of non-missing)
+  - Overcast: 12,293 occurrences (7.60% of non-missing)
+  - Light Snow: 8,086 occurrences (5.00% of non-missing)
+  - Scattered Clouds: 6,846 occurrences (4.23% of non-missing)
+  - Light Rain: 6,275 occurrences (3.88% of non-missing)
+  - Snow: 1,918 occurrences (1.19% of non-missing)
+  - Haze: 1,604 occurrences (0.99% of non-missing)
+  - Fog: 1,273 occurrences (0.79% of non-missing)
+  - Rain: 1,268 occurrences (0.78% of non-missing)
+  - Fair / Windy: 875 occurrences (0.54% of non-missing)
+  - Heavy Snow: 661 occurrences (0.41% of non-missing)
+  - Mostly Cloudy / Windy: 500 occurrences (0.31% of non-missing)
+  - Heavy Rain: 494 occurrences (0.31% of non-missing)
+  - Light Drizzle: 448 occurrences (0.28% of non-missing)
+  - Cloudy / Windy: 436 occurrences (0.27% of non-missing)
+  - Light Snow / Windy: 403 occurrences (0.25% of non-missing)

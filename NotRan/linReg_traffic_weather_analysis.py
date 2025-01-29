@@ -187,25 +187,23 @@ def extract_speed_info(speed_str: str) -> tuple:
 
 weather_vars = [
     "Temperature(F)",
-    "WindChill(F)",
     "Humidity(%)",
     "Pressure(in)",
-    "WindSpeed(mph)",
-    "Precipitation(in)",
-    "weather_good",
-    "weather_bad",
-    "weather_neutral",
-    "weather_unknown",
+    # "WindChill(F)",
+    # "Precipitation(in)",
+    # # "WindSpeed(mph)",
+    # "weather_good",
+    # "weather_bad",
+    # "weather_neutral",
+    # "weather_unknown",
 ]
 
 traffic_vars = [
-    "Severity",
-    "Traffic Jam Duration",
     "Distance(mi)",
+    "Traffic Jam Duration",
     "DelayFromTypicalTraffic(mins)",
     "DelayFromFreeFlowSpeed(mins)",
     "speed_numeric",
-    "speed_category",
 ]
 
 
@@ -265,9 +263,9 @@ def compile_results(models: dict) -> pd.DataFrame:
 
 def main():
     try:
-        df = process_file("us_congestion_2016_2022SMALL.csv")
+        df = process_file("us_congestion_2016_2022curratorcollection.csv")
         # all_models = analyze_all_models(df)
-        results_df = analyze_all_models(df, 4)
+        results_df = analyze_all_models(df, 3)
         results_df.to_csv("automated_model_results.csv", index=False)
 
         print("\n Most Significant influence:  ")
